@@ -8,7 +8,7 @@ Primeiro, foi verificada a configuração de rede:
 ip addr
 ```
 
-Saída real:
+Saída:
 
 ```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -39,7 +39,7 @@ Também é possível verificar a rota:
 ip route
 ```
 
-Saída real:
+Saída:
 
 ```text
 default via 192.168.0.1 dev wlp0s20f3 proto dhcp src 192.168.0.12 metric 600
@@ -58,7 +58,7 @@ Em sistemas que utilizam NetworkManager, podemos verificar informações da cone
 nmcli device show wlp0s20f3
 ```
 
-Saída real:
+Saída:
 
 ```text
 GENERAL.DEVICE:                         wlp0s20f3
@@ -88,7 +88,7 @@ Foi consultado o diretório de estado do NetworkManager:
 ls /var/lib/NetworkManager/
 ```
 
-Saída real:
+Saída:
 
 ```text
 ls: cannot open directory '/var/lib/NetworkManager/': Permission denied
@@ -100,10 +100,9 @@ A primeira tentativa não tinha permissão para listar o diretório. A consulta 
 sudo ls /var/lib/NetworkManager/
 ```
 
-Saída real:
+Saída:
 
 ```text
-[sudo] password for joaopogo:
 internal-b2bb2ab0-28fe-418d-926e-ca3c641bb53a-wlp0s20f3.lease  seen-bssids
 NetworkManager-intern.conf                                      timestamps
 secret_key
@@ -117,7 +116,7 @@ As linhas do `nmcli` terminadas em `>` foram truncadas na visualização enviada
 
 # 3. Parâmetros recebidos
 
-Com base nas saídas reais:
+Com base nas saídas:
 
 | Parâmetro | Valor |
 |---|---|
@@ -138,7 +137,7 @@ O arquivo foi consultado no terminal do host:
 sudo cat /var/lib/NetworkManager/internal-b2bb2ab0-28fe-418d-926e-ca3c641bb53a-wlp0s20f3.lease
 ```
 
-Saída real:
+Saída:
 
 ```text
 # This is private data. Do not parse.

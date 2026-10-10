@@ -8,7 +8,7 @@ Comando utilizado:
 ip route
 ```
 
-Saída real:
+Saída:
 
 ```text
 default via 192.168.0.1 dev wlp0s20f3 proto dhcp src 192.168.0.12 metric 600
@@ -29,10 +29,9 @@ Foi escolhido o endereço `8.8.8.8`, utilizando `/32` para limitar a rota a esse
 sudo ip route add 8.8.8.8/32 via 192.168.1.1 dev eth0
 ```
 
-Saída real:
+Saída:
 
 ```text
-[sudo] password for joaopogo:
 Cannot find device "eth0"
 ```
 
@@ -44,13 +43,9 @@ Cannot find device "eth0"
 sudo ip route add 8.8.8.8/32 via 192.168.0.1 dev wlp0s20f3
 ```
 
-Saída real:
+Saída: nenhuma; o comando retornou sem mensagens.
 
-```text
-[sudo] password for joaopogo:
-```
-
-Após solicitar a senha, o comando retornou ao prompt sem mensagens de erro.
+A presença da nova rota foi confirmada pela consulta seguinte.
 
 O gateway é o mesmo da rota default. Portanto, a rota específica muda a seleção da rota para esse destino, mas mantém o mesmo próximo salto e a mesma interface.
 
@@ -64,7 +59,7 @@ Após executar o comando corrigido:
 ip route
 ```
 
-Saída real:
+Saída:
 
 ```text
 default via 192.168.0.1 dev wlp0s20f3 proto dhcp src 192.168.0.12 metric 600
@@ -92,7 +87,7 @@ Após confirmar a adição, foi executada a remoção:
 sudo ip route del 8.8.8.8/32 via 192.168.0.1 dev wlp0s20f3
 ```
 
-Saída real: nenhuma. O comando retornou ao prompt sem exibir mensagens.
+Saída: nenhuma. O comando retornou ao prompt sem exibir mensagens.
 
 Depois:
 
@@ -100,7 +95,7 @@ Depois:
 ip route
 ```
 
-Saída real após a remoção:
+Saída:
 
 ```text
 default via 192.168.0.1 dev wlp0s20f3 proto dhcp src 192.168.0.12 metric 600
@@ -119,6 +114,6 @@ default via 192.168.0.1 dev wlp0s20f3 proto dhcp src 192.168.0.12 metric 600
 
 # Conclusão
 
-As saídas reais confirmam a adição da rota `8.8.8.8/32` via `192.168.0.1` na interface `wlp0s20f3` e sua posterior remoção, restaurando a tabela inicial. A tentativa anterior com `eth0` falhou e foi corrigida utilizando a interface e o gateway reais da máquina.
+As saídas confirmam a adição da rota `8.8.8.8/32` via `192.168.0.1` na interface `wlp0s20f3` e sua posterior remoção, restaurando a tabela inicial. A tentativa anterior com `eth0` falhou e foi corrigida utilizando a interface e o gateway reais da máquina.
 
 Rotas manuais podem ser úteis para diagnóstico. Neste teste, o prefixo `/32` limita a seleção da rota a um único destino, e a remoção da entrada permite retornar à tabela inicial.

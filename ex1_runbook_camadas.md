@@ -342,7 +342,7 @@ ip addr
 
 Se `ip link` apresentar a interface como `DOWN`, existe um problema relacionado à interface ou ao enlace. Se ela estiver `UP` e possuir um endereço IP válido em `ip addr`, essa hipótese pode ser refutada.
 
-Nas saídas reais deste runbook, a interface Wi-Fi `wlp0s20f3` está `UP`, possui enlace e endereço IP. Portanto, não há evidência de falha de enlace na conexão Wi-Fi utilizada. A interface Ethernet `enp3s0` está sem enlace.
+Nas saídas deste runbook, a interface Wi-Fi `wlp0s20f3` está `UP`, possui enlace e endereço IP. Portanto, não há evidência de falha de enlace na conexão Wi-Fi utilizada. A interface Ethernet `enp3s0` está sem enlace.
 
 ## Hipótese 2 – Falha de camada alta
 
@@ -357,7 +357,7 @@ getent hosts google.com
 
 Se o `ping 8.8.8.8` funcionar, existe conectividade IP com a Internet. Porém, se `getent hosts google.com` não retornar um endereço, existe uma possível falha na resolução DNS.
 
-Nas saídas reais deste runbook, tanto a comunicação com `8.8.8.8` quanto a resolução de `google.com` funcionaram. Portanto, a hipótese de falha de DNS é refutada.
+Nas saídas deste runbook, tanto a comunicação com `8.8.8.8` quanto a resolução de `google.com` funcionaram. Portanto, a hipótese de falha de DNS é refutada.
 
 ## Conclusão
 

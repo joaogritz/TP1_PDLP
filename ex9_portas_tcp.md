@@ -2,13 +2,15 @@
 
 ## 1. Portas TCP em escuta
 
+As saídas de sockets abaixo têm o espaçamento entre colunas compactado.
+
 Comando utilizado:
 
 ```bash
 ss -tulpen | grep tcp
 ```
 
-Saída real (espaçamento entre colunas compactado):
+Saída:
 
 ```text
 tcp LISTEN 0 4096 127.0.0.1:43969 0.0.0.0:* uid:1000 ino:210696 sk:1011 cgroup:/user.slice/user-1000.slice/user@1000.service/app.slice/docker-desktop.service <->
@@ -37,7 +39,7 @@ Foram executados:
 ss -tulpen | grep ':193 '
 ```
 
-Saída real (espaçamento compactado):
+Saída:
 
 ```text
 udp UNCONN 0 0 0.0.0.0:5355 0.0.0.0:* uid:193 ino:206255 sk:1003 cgroup:/system.slice/systemd-resolved.service <->
@@ -54,7 +56,7 @@ tcp LISTEN 0 4096 [::]:5355 [::]:* uid:193 ino:206264 sk:1017 cgroup:/system.sli
 ss -tulpen | grep ':968 '
 ```
 
-Saída real (espaçamento compactado):
+Saída:
 
 ```text
 tcp LISTEN 0 10 0.0.0.0:27500 0.0.0.0:* uid:968 ino:45703 sk:1013 cgroup:/system.slice/passim.service <->
@@ -82,7 +84,7 @@ No terminal 1:
 sudo python3 -m http.server 55000
 ```
 
-Saída real da inicialização:
+Saída:
 
 ```text
 Serving HTTP on 0.0.0.0 port 55000 (http://0.0.0.0:55000/) ...
@@ -94,7 +96,7 @@ Com o servidor ainda em execução, no terminal 2:
 ss -ltnp 'sport = :55000'
 ```
 
-Saída real:
+Saída:
 
 ```text
 State   Recv-Q   Send-Q     Local Address:Port      Peer Address:Port  Process
@@ -115,10 +117,9 @@ Com o servidor do terminal 1 ainda ativo, foi executado no terminal 2:
 sudo python3 -m http.server 55000
 ```
 
-Saída real:
+Saída:
 
 ```text
-[sudo] password for joaopogo:
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
@@ -157,7 +158,7 @@ OSError: [Errno 98] Address already in use
 
 No terminal 1, o servidor foi encerrado com `Ctrl+C`.
 
-Saída real do encerramento:
+Saída:
 
 ```text
 ^C
@@ -170,7 +171,7 @@ Depois, no mesmo terminal:
 ss -ltnp 'sport = :55000'
 ```
 
-Saída real:
+Saída:
 
 ```text
 State   Recv-Q   Send-Q     Local Address:Port     Peer Address:Port  Process
@@ -188,6 +189,6 @@ Na coleta, o servidor Python utilizou `0.0.0.0:55000`. O resolvedor DNS, o CUPS 
 
 # Conclusão
 
-As saídas reais mostram portas TCP em escuta e confirmam o teste com a porta alta `55000`: inicialização do servidor HTTP do Python, verificação da escuta, conflito ao tentar iniciar uma segunda instância no mesmo endereço e porta e liberação após `Ctrl+C`.
+As saídas mostram portas TCP em escuta e confirmam o teste com a porta alta `55000`: inicialização do servidor HTTP do Python, verificação da escuta, conflito ao tentar iniciar uma segunda instância no mesmo endereço e porta e liberação após `Ctrl+C`.
 
 Os filtros iniciais também demonstram a diferença entre UID e porta. Os detalhes de processo e PID só podem ser identificados quando aparecem na saída; na consulta da porta `55000`, a coluna `Process` ficou vazia.

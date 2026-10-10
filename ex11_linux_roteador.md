@@ -8,7 +8,7 @@ Comando utilizado:
 sysctl net.ipv4.ip_forward
 ```
 
-Saída real:
+Saída:
 
 ```text
 net.ipv4.ip_forward = 0
@@ -22,7 +22,7 @@ O estado inicial também foi verificado com:
 cat /proc/sys/net/ipv4/ip_forward
 ```
 
-Saída real:
+Saída:
 
 ```text
 0
@@ -38,7 +38,7 @@ Para habilitar o forwarding IPv4:
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
-Saída real:
+Saída:
 
 ```text
 net.ipv4.ip_forward = 1
@@ -50,7 +50,7 @@ Depois, a linha de resultado foi digitada diretamente no terminal:
 net.ipv4.ip_forward = 1
 ```
 
-Saída real:
+Saída:
 
 ```text
 bash: net.ipv4.ip_forward: command not found...
@@ -65,7 +65,7 @@ Verificação:
 sysctl net.ipv4.ip_forward
 ```
 
-Saída real:
+Saída:
 
 ```text
 net.ipv4.ip_forward = 1
@@ -104,7 +104,7 @@ Para desabilitar novamente o forwarding:
 sudo sysctl -w net.ipv4.ip_forward=0
 ```
 
-Saída real:
+Saída:
 
 ```text
 net.ipv4.ip_forward = 0
@@ -116,7 +116,7 @@ Verificação:
 sysctl net.ipv4.ip_forward
 ```
 
-Saída real:
+Saída:
 
 ```text
 net.ipv4.ip_forward = 0
@@ -138,4 +138,4 @@ Manter o forwarding habilitado sem políticas adequadas pode gerar os seguintes 
 
 # Conclusão
 
-A opção `net.ipv4.ip_forward` controla se o Linux pode encaminhar pacotes IPv4 entre interfaces. Habilitá-la é um dos requisitos para utilizar um host Linux como roteador, mas ainda são necessárias rotas adequadas e políticas de segurança. As saídas reais confirmam a sequência `0 → 1 → 0`: o forwarding foi habilitado, verificado e desabilitado novamente, restaurando o valor inicial. Não foi apresentado um teste de encaminhamento de pacotes entre redes; o experimento verificou a alteração do parâmetro.
+A opção `net.ipv4.ip_forward` controla se o Linux pode encaminhar pacotes IPv4 entre interfaces. Habilitá-la é um dos requisitos para utilizar um host Linux como roteador, mas ainda são necessárias rotas adequadas e políticas de segurança. As saídas confirmam a sequência `0 → 1 → 0`: o forwarding foi habilitado, verificado e desabilitado novamente, restaurando o valor inicial. Não foi apresentado um teste de encaminhamento de pacotes entre redes; o experimento verificou a alteração do parâmetro.

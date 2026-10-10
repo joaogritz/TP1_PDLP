@@ -27,7 +27,7 @@ As saídas de interfaces, rotas, resolução de domínio, sockets e configuraç�
 ip link
 ```
 
-Saída real enviada pelo usuário:
+Saída:
 
 ```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
@@ -50,7 +50,7 @@ Saída real enviada pelo usuário:
 ip -4 addr
 ```
 
-Saída real enviada pelo usuário:
+Saída:
 
 ```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -72,7 +72,7 @@ Saída real enviada pelo usuário:
 ip -6 addr
 ```
 
-Saída real enviada pelo usuário:
+Saída:
 
 ```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 state UNKNOWN qlen 1000
@@ -95,7 +95,7 @@ Saída real enviada pelo usuário:
 ip route
 ```
 
-Saída real enviada pelo usuário:
+Saída:
 
 ```text
 default via 192.168.0.1 dev wlp0s20f3 proto dhcp src 192.168.0.12 metric 600
@@ -112,7 +112,7 @@ default via 192.168.0.1 dev wlp0s20f3 proto dhcp src 192.168.0.12 metric 600
 ip -6 route
 ```
 
-Saída real enviada pelo usuário:
+Saída:
 
 ```text
 2804:2f60:4239:1b01::/64 dev wlp0s20f3 proto ra metric 600 pref medium
@@ -130,7 +130,7 @@ default via fe80::32de:4bff:fe08:f1f6 dev wlp0s20f3 proto ra metric 600 pref med
 getent hosts google.com
 ```
 
-Saída real enviada pelo usuário:
+Saída:
 
 ```text
 2800:3f0:4004:816::200e google.com
@@ -142,7 +142,7 @@ Também foi verificado:
 cat /etc/hosts
 ```
 
-Saída real enviada pelo usuário após restaurar o arquivo:
+Saída:
 
 ```text
 # Loopback entries; do not change.
@@ -168,7 +168,7 @@ Saída real enviada pelo usuário após restaurar o arquivo:
 hostname
 ```
 
-Saída real coletada nesta revisão:
+Saída:
 
 ```text
 fedora
@@ -184,7 +184,7 @@ fedora
 ss -ltn
 ```
 
-Saída real enviada pelo usuário:
+Saída:
 
 ```text
 State     Recv-Q    Send-Q       Local Address:Port        Peer Address:Port
@@ -223,7 +223,7 @@ Não foram observadas escutas adicionais em relação a esse inventário, e a po
 ip addr
 ```
 
-Saída real enviada pelo usuário:
+Saída:
 
 ```text
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -252,7 +252,7 @@ Também:
 ip route
 ```
 
-Saída real enviada pelo usuário:
+Saída:
 
 ```text
 default via 192.168.0.1 dev wlp0s20f3 proto dhcp src 192.168.0.12 metric 600
@@ -269,7 +269,7 @@ default via 192.168.0.1 dev wlp0s20f3 proto dhcp src 192.168.0.12 metric 600
 sysctl net.ipv4.ip_forward
 ```
 
-Saída real coletada nesta revisão:
+Saída:
 
 ```text
 net.ipv4.ip_forward = 0

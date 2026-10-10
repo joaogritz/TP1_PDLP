@@ -85,9 +85,6 @@ echo "127.0.0.1 servico-interno.local" | sudo tee -a /etc/hosts
 Saída:
 
 ```text
-[sudo] password for joaopogo:
-Sorry, try again.
-[sudo] password for joaopogo:
 127.0.0.1 servico-interno.local
 ```
 
@@ -123,12 +120,7 @@ Depois, execute novamente:
 getent hosts servico-interno.local
 ```
 
-Resultado:
-
-```text
-```
-
-Sem saída.
+Saída: nenhuma; a consulta não retornou registros.
 
 **Conclusão:** Após remover a entrada do `/etc/hosts`, o nome deixou de ser resolvido.
 

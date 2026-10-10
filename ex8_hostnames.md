@@ -6,7 +6,7 @@
 hostname
 ```
 
-Saída real:
+Saída:
 
 ```text
 fedora
@@ -16,7 +16,7 @@ fedora
 hostnamectl
 ```
 
-Saída real:
+Saída:
 
 ```text
   Transient hostname: fedora
@@ -58,7 +58,7 @@ Primeiro, o nome foi digitado diretamente no terminal:
 dr4-joao-linux
 ```
 
-Saída real:
+Saída:
 
 ```text
 bash: dr4-joao-linux: command not found...
@@ -70,7 +70,7 @@ O shell tentou executar o nome como comando. Para alterar o hostname, foi utiliz
 sudo hostnamectl set-hostname dr4-joao-linux
 ```
 
-Saída real: nenhuma; o comando retornou ao prompt sem mensagens.
+Saída: nenhuma; o comando retornou ao prompt sem mensagens.
 
 Verificação:
 
@@ -78,7 +78,7 @@ Verificação:
 hostname
 ```
 
-Saída real:
+Saída:
 
 ```text
 dr4-joao-linux
@@ -88,7 +88,7 @@ dr4-joao-linux
 hostnamectl
 ```
 
-Saída real:
+Saída:
 
 ```text
      Static hostname: dr4-joao-linux
@@ -123,7 +123,7 @@ Antes da edição:
 cat /etc/hosts
 ```
 
-Saída real:
+Saída:
 
 ```text
 # Loopback entries; do not change.
@@ -151,7 +151,7 @@ Após a edição:
 cat /etc/hosts
 ```
 
-Saída real:
+Saída:
 
 ```text
 # Loopback entries; do not change.
@@ -179,7 +179,7 @@ Foi executado:
 sudo hostnamectl set-hostname fedora
 ```
 
-Saída real: nenhuma; o comando retornou ao prompt sem mensagens.
+Saída: nenhuma; o comando retornou ao prompt sem mensagens.
 
 Verificação:
 
@@ -187,7 +187,7 @@ Verificação:
 hostname
 ```
 
-Saída real:
+Saída:
 
 ```text
 fedora
@@ -197,7 +197,7 @@ fedora
 hostnamectl
 ```
 
-Saída real:
+Saída:
 
 ```text
      Static hostname: fedora
@@ -228,19 +228,13 @@ Na primeira coleta do exercício 12, a entrada de teste ainda estava no arquivo.
 sudo nano /etc/hosts
 ```
 
-Saída real:
-
-```text
-[sudo] password for joaopogo:
-```
-
-Verificação após salvar:
+Após salvar e fechar o editor, foi realizada a verificação:
 
 ```bash
 cat /etc/hosts
 ```
 
-Saída real:
+Saída:
 
 ```text
 # Loopback entries; do not change.
@@ -260,4 +254,4 @@ Saída real:
 
 # Conclusão
 
-As saídas reais confirmam a alteração para `dr4-joao-linux` e a volta para `fedora`, agora configurado como hostname estático. A coleta final confirma a restauração do conteúdo original de `/etc/hosts`. Alterar o hostname com `hostnamectl` e editar associações no `/etc/hosts` são operações distintas, e ambas precisam ser verificadas ao reverter o teste.
+As saídas confirmam a alteração para `dr4-joao-linux` e a volta para `fedora`, agora configurado como hostname estático. A coleta final confirma a restauração do conteúdo original de `/etc/hosts`. Alterar o hostname com `hostnamectl` e editar associações no `/etc/hosts` são operações distintas, e ambas precisam ser verificadas ao reverter o teste.
